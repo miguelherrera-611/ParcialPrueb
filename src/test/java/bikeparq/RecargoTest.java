@@ -16,4 +16,9 @@ class RecargoTest {
     void horaFueraDeRangoLanzaError() {
         assertThrows(IllegalArgumentException.class, () -> Recargo.aplicarRecargoNocturno(3000, 24));
     }
+
+    @Test
+    void tarifaCeroDeNocheNoTieneRecargo() {
+        assertEquals(0, Recargo.aplicarRecargoNocturno(0, 23));
+    }
 }
