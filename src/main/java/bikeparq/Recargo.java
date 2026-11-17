@@ -9,6 +9,9 @@ public final class Recargo {
         if (horaEntrada < 0 || horaEntrada > 23) {
             throw new IllegalArgumentException("La hora debe estar entre 0 y 23");
         }
+        if (tarifa == 0) {
+            return tarifa;
+        }
         if (horaEntrada >= 20 || horaEntrada <= 5) {
             return tarifa + 2000;
         }
