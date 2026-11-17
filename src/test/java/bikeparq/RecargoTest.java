@@ -21,4 +21,29 @@ class RecargoTest {
     void tarifaCeroDeNocheNoTieneRecargo() {
         assertEquals(0, Recargo.aplicarRecargoNocturno(0, 23));
     }
+
+    @Test
+    void tarifaDeDiaNoCambia() {
+        assertEquals(3000, Recargo.aplicarRecargoNocturno(3000, 10));
+    }
+
+    @Test
+    void horaVeinteEsLimiteDeNoche() {
+        assertEquals(5000, Recargo.aplicarRecargoNocturno(3000, 20));
+    }
+
+    @Test
+    void horaDiecinueveEsLimiteDeDia() {
+        assertEquals(3000, Recargo.aplicarRecargoNocturno(3000, 19));
+    }
+
+    @Test
+    void horaCincoEsLimiteDeNoche() {
+        assertEquals(5000, Recargo.aplicarRecargoNocturno(3000, 5));
+    }
+
+    @Test
+    void horaSeisEsLimiteDeDia() {
+        assertEquals(3000, Recargo.aplicarRecargoNocturno(3000, 6));
+    }
 }
